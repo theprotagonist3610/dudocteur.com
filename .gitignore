@@ -1,0 +1,12 @@
+node_modules/
+dist/
+dev-dist/
+*.tsbuildinfo
+.env*.local
+.DS_Store
+
+# Police Quartzo : licence « personal use only », ne pas versionner.
+quartzo.zip
+
+# Charte graphique : document de marque, gardé en local (dépôt public).
+Charte graphique.pdf

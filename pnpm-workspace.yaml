@@ -1,0 +1,9 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+
+# Une seule version de React dans tout le dépôt : Expo ne supporte pas plusieurs
+# versions de React (ni de React Native) dans un même monorepo.
+overrides:
+  react: 19.3.0
+  react-dom: 19.3.0

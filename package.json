@@ -1,0 +1,16 @@
+{
+  "name": "lesoutilsdudocteur",
+  "private": true,
+  "packageManager": "pnpm@12.6.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev:lod": "pnpm --filter lod dev",
+    "dev:pro": "pnpm --filter lod-pro dev",
+    "dev:mobile": "pnpm --filter lod-react-native start",
+    "build": "pnpm --filter lod --filter lod-pro build",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test"
+  }
+}

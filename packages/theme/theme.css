@@ -1,0 +1,152 @@
+/*
+  Thème Tailwind v4 (CSS-first) des apps web LOD et LOD-Pro.
+  Copie de src/index.ts : modifier les deux ensemble (un test le vérifie).
+
+  Mode sombre : suit le système, sauf choix explicite data-theme="light|dark"
+  posé sur <html> par le script inline de index.html.
+
+  Poppins est chargée par des <link> dans le <head> de chaque app (un @import
+  placé après les couches générées par Tailwind serait ignoré).
+*/
+
+:root {
+  --background: #fffcf8;
+  --surface: #ffffff;
+  --surface-alt: #ffe8c9;
+  --foreground: #2a1210;
+  --muted: #f5e9dc;
+  --muted-foreground: #6b5b52;
+  --border: #f0d9be;
+  --primary: #a41624;
+  --primary-hover: #8a121f;
+  --primary-foreground: #ffffff;
+  --secondary: #d9571d;
+  --secondary-foreground: #ffffff;
+  --accent: #ffb564;
+  --accent-foreground: #451a03;
+  --success: #15803d;
+  --success-foreground: #ffffff;
+  --warning: #d97706;
+  --warning-foreground: #ffffff;
+  --warning-text: #b45309;
+  --chart-reference: #2563eb;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --ring: #a41624;
+  --radius: 0.75rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --background: #1b1210;
+    --surface: #241714;
+    --surface-alt: #3a2318;
+    --foreground: #fdecd8;
+    --muted: #3a2a22;
+    --muted-foreground: #c9b3a3;
+    --border: #4a342a;
+    --primary: #e5495a;
+    --primary-hover: #f06478;
+    --primary-foreground: #ffffff;
+    --secondary: #ff8a4d;
+    --secondary-foreground: #241714;
+    --accent: #ffb564;
+    --accent-foreground: #2a1210;
+    --success: #4ade80;
+    --success-foreground: #052e13;
+    --warning: #fbbf24;
+    --warning-foreground: #1c1204;
+    --warning-text: #fbbf24;
+    --chart-reference: #3b82f6;
+    --destructive: #f87171;
+    --destructive-foreground: #1c0a0a;
+    --ring: #e5495a;
+  }
+}
+
+:root[data-theme="dark"] {
+  --background: #1b1210;
+  --surface: #241714;
+  --surface-alt: #3a2318;
+  --foreground: #fdecd8;
+  --muted: #3a2a22;
+  --muted-foreground: #c9b3a3;
+  --border: #4a342a;
+  --primary: #e5495a;
+  --primary-hover: #f06478;
+  --primary-foreground: #ffffff;
+  --secondary: #ff8a4d;
+  --secondary-foreground: #241714;
+  --accent: #ffb564;
+  --accent-foreground: #2a1210;
+  --success: #4ade80;
+  --success-foreground: #052e13;
+  --warning: #fbbf24;
+  --warning-foreground: #1c1204;
+  --warning-text: #fbbf24;
+  --chart-reference: #3b82f6;
+  --destructive: #f87171;
+  --destructive-foreground: #1c0a0a;
+  --ring: #e5495a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-warning-text: var(--warning-text);
+  --color-chart-reference: var(--chart-reference);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-ring: var(--ring);
+  --radius-DEFAULT: var(--radius);
+
+  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Poppins", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+    *,
+    *::before,
+    *::after {
+      transition-property: background-color, border-color, color, fill, stroke, outline-color;
+      transition-timing-function: ease;
+      transition-duration: 500ms;
+    }
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+  }
+}
