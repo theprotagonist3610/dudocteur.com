@@ -1,2 +1,19 @@
 @import "tailwindcss";
 @import "@lod/theme/theme.css";
+
+/* Réglages tactiles (LOD est pensée d'abord pour le téléphone). */
+@layer base {
+  html {
+    /* Pas de rectangle gris au toucher : chaque élément a son propre état actif. */
+    -webkit-tap-highlight-color: transparent;
+    /* Pas de délai ni de zoom au double toucher sur les boutons et liens. */
+    touch-action: manipulation;
+    /* Taille du texte stable en rotation paysage sur iOS. */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  body {
+    /* Pas d'effet élastique qui ferait apparaître le fond sous l'en-tête collant. */
+    overscroll-behavior-y: none;
+  }
+}

@@ -2,6 +2,10 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
+    <!-- viewport-fit=cover : la page occupe tout l'écran, encoche comprise (marges via env(safe-area-inset-*)). -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- Couleur de la barre du navigateur : celle de l'en-tête (surface), ajustée au thème. -->
+    <meta name="theme-color" content="#ffffff" />
     <script>
       // Thème posé avant le rendu (pas de flash) : choix mémorisé, sinon celui du système.
       (function () {
@@ -16,16 +20,14 @@
               ? "dark"
               : "light";
         document.documentElement.setAttribute("data-theme", theme);
+        document.querySelector('meta[name="theme-color"]').content = theme === "dark" ? "#241714" : "#ffffff";
       })();
     </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Les Outils du Docteur</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Seules les graisses utilisées (400, 500, 600) : moins de données à télécharger sur mobile. -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
   </head>
   <body>
     <div id="root"></div>
