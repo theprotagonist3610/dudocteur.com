@@ -7,6 +7,7 @@ import {
   ExclamationTriangleIcon,
   FaceSmileIcon,
   FireIcon,
+  FlagIcon,
   FunnelIcon,
   HeartIcon,
   MoonIcon,
@@ -33,4 +34,5 @@ export const ICONS: Record<IconName, ComponentType<{ className?: string }>> = {
   warning: ExclamationTriangleIcon,
   bug: BugAntIcon,
   smile: FaceSmileIcon,
+  flag: FlagIcon,
 };

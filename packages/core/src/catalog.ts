@@ -116,6 +116,18 @@ export const CATALOG: readonly ToolMeta[] = [
     status: "en-construction",
   },
   {
+    // Proposé depuis l'outil Besoins énergétiques. Contenu à définir : sa page
+    // « Bientôt disponible » mesure déjà l'intérêt qu'il suscite.
+    id: "programme-minceur",
+    name: "Programme minceur",
+    description: "Un programme pour perdre du poids à votre rythme.",
+    icon: "flag",
+    organs: ["metabolisme"],
+    sex: "tous",
+    conditions: ["obesite", "diabete", "hypertension"],
+    status: "en-construction",
+  },
+  {
     id: "poids",
     name: "Masse maigre et poids idéal",
     description: "Masse maigre, poids idéal, poids ajusté et poids idéal théorique.",

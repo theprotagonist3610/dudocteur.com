@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import { Layout } from "./Layout";
+import { ErrorPage } from "./pages/ErrorPage";
 import { HomePage } from "./pages/HomePage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { ToolPage } from "./pages/ToolPage";
@@ -10,6 +11,8 @@ export const router = createBrowserRouter([
   {
     path: "/",
     Component: Layout,
+    // Remplace la page d'erreur technique de React Router par un écran compréhensible.
+    ErrorBoundary: ErrorPage,
     children: [
       { index: true, Component: HomePage },
       { path: ":toolId", Component: ToolPage },

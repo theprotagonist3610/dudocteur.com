@@ -80,7 +80,8 @@ export type IconName =
   | "moon"
   | "warning"
   | "bug"
-  | "smile";
+  | "smile"
+  | "flag";
 
 // "en-construction" : grisé pour les utilisateurs ; "disponible" : ouvrable.
 export type ToolStatus = "en-construction" | "disponible";

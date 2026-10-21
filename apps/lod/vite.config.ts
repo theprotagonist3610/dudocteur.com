@@ -23,5 +23,9 @@ export default defineConfig({
   ],
   // .env.local unique à la racine du dépôt.
   envDir: "../..",
+  // Dépendances chargées à la demande (onglet Courbes) : préparées dès le démarrage du
+  // serveur de dev. Sinon Vite les découvre à l'ouverture de l'onglet, se réoptimise,
+  // et l'import en cours échoue (« Failed to fetch dynamically imported module »).
+  optimizeDeps: { include: ["recharts"] },
   server: { port: 5173, strictPort: true },
 });

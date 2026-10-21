@@ -2,8 +2,8 @@ import { describe, expect, it } from "vitest";
 import { CATALOG, getToolMeta } from "./catalog";
 
 describe("catalogue", () => {
-  it("contient les 26 outils, chacun avec un identifiant unique", () => {
-    expect(CATALOG).toHaveLength(26);
+  it("contient les 27 outils, chacun avec un identifiant unique", () => {
+    expect(CATALOG).toHaveLength(27);
     expect(new Set(CATALOG.map((t) => t.id)).size).toBe(CATALOG.length);
   });
 

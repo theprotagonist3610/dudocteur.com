@@ -1,7 +1,7 @@
-import { WrenchScrewdriverIcon } from "@heroicons/react/24/outline";
+import { ArrowLeftIcon, WrenchScrewdriverIcon } from "@heroicons/react/24/outline";
 import { getToolMeta } from "@lod/core";
 import { Suspense } from "react";
-import { useParams } from "react-router";
+import { useLocation, useNavigate, useParams } from "react-router";
 import { ICONS } from "../icons";
 import { TOOL_COMPONENTS } from "../tools";
 import { NotFoundPage } from "./NotFoundPage";
@@ -15,6 +15,24 @@ function ComingSoon() {
       <p className="font-semibold text-foreground">Outil en construction</p>
       <p className="max-w-xs text-sm text-muted-foreground">Cet outil sera bientôt disponible.</p>
     </div>
+  );
+}
+
+// Retour : revient à la page précédente de l'app (la liste retrouve sa position
+// de défilement) ; à défaut (lien ouvert directement), l'accueil.
+function BackButton() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const goBack = () => (location.key === "default" ? navigate("/") : navigate(-1));
+  return (
+    <button
+      type="button"
+      onClick={goBack}
+      className="-ml-3 inline-flex h-11 items-center gap-2 rounded-full px-3 text-sm font-medium text-muted-foreground active:bg-muted md:hover:text-primary"
+    >
+      <ArrowLeftIcon className="h-4 w-4" aria-hidden="true" />
+      Tous les outils
+    </button>
   );
 }
 
@@ -32,7 +50,8 @@ export function ToolPage() {
     <>
       <title>{`${tool.name} — Les Outils du Docteur`}</title>
       <meta name="description" content={tool.description} />
-      <div className="flex items-center gap-4">
+      <BackButton />
+      <div className="mt-3 flex items-center gap-4">
         <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary md:h-14 md:w-14">
           <Icon className="h-6 w-6 md:h-7 md:w-7" />
         </span>
